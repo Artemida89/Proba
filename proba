@@ -1,0 +1,19 @@
+import random
+
+list = [1, 2, 3]
+
+mas = random.choice(list)
+
+if mas < 1:
+    mass = "wqd;k"
+    print("Вывод перемешанного списка ", mass)
+elif mas >1:
+    mass = "w8213jqw"
+    print("Вывод перемешанного списка ", mass)
+else:
+    mass = "wqiu3"
+    print("Вывод перемешанного списка ", mass)
+
+c = mass
+
+print(c)
