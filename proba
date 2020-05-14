@@ -1,19 +1,37 @@
-import random
+#python
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+from kivy.uix.button import Button
+from kivy.uix.screenmanager import  Screen
+import kivy
 
-list = [1, 2, 3]
+from kivy.uix.carousel import Carousel
 
-mas = random.choice(list)
 
-if mas < 1:
-    mass = "wqd;k"
-    print("Вывод перемешанного списка ", mass)
-elif mas >1:
-    mass = "w8213jqw"
-    print("Вывод перемешанного списка ", mass)
-else:
-    mass = "wqiu3"
-    print("Вывод перемешанного списка ", mass)
+LABELS_BY_IDS = dict()
 
-c = mass
+class Action(Button):
+    pass
+class Test2(App):
+    def build(self):
+        MyWidgetScreen= Screen()
+        MyWidget = BoxLayout()
+        MyWidgetScreen.add_widget(MyWidget)
+        lab = Label(text='First Text')
+        LABELS_BY_IDS[0]=lab
+        MyWidget.add_widget(lab)
+        but = Action()
+        MyWidget.add_widget(but)
 
-print(c)
+        carousel = Carousel(loop=True)
+        for text in ['First Text', 'Second Text']:
+            carousel.add_widget(Label(text=text))
+
+        return MyWidgetScreen
+    def change(self):
+        LABELS_BY_IDS[0].text = 'Second Text'
+
+
+if __name__=='__main__':
+    Test2().run()
